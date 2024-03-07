@@ -1,0 +1,112 @@
+﻿@using EntityLayer.Concrete
+@model List<Job>
+@{
+	int idNum = 0;
+}
+@foreach (var item in Model)
+{
+	string category;
+	string platform;
+	idNum++;
+	@switch (item.CategoryId)
+	{
+		case 1:
+			category = "Yazılım Test";
+			break;
+		case 2:
+			category = "Web Geliştirme";
+			break;
+		case 3:
+			category = "Mobil Geliştirme";
+			break;
+		case 4:
+			category = "Oyun Geliştirme";
+			break;
+		case 5:
+			category = "Veri Analistliği";
+			break;
+		case 6:
+			category = "Yapay Zeka";
+			break;
+		default:
+			category = "Hızlı İş";
+			break;
+	}
+	@switch (item.PlatformId)
+	{
+		case 1:
+			platform = "C";
+			break;
+		case 2:
+			platform = "C++";
+			break;
+		case 3:
+			platform = "C#";
+			break;
+		case 4:
+			platform = "Java";
+			break;
+		case 5:
+			platform = "Python";
+			break;
+		default:
+			platform = "Hızlı İş";
+			break;
+	}
+	<div class="single-post d-flex flex-row">
+		<div class="thumb">
+			<img src="~/freelancer-job/img/post.png" alt="">
+			<ul class="tags">
+				<li>
+					<a href="">@category</a>
+				</li>
+				<li>
+					<a href="">@platform</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="details">
+			<div class="title">
+				<div class="titles">
+					<a href="single.html"><h4>@item.JobName</h4></a>
+				</div>
+			</div>
+			<p>
+				@item.JobContent
+			</p>
+			<h5>@(item.JobTypeId == 0 ? "Tam Zamanlı İş" : "Yarı Zamanlı İş")</h5>
+			<p class="address"><span class="lnr lnr-map"></span> @(((DateTime)item.AdvertDate).ToString("dd-MMM-yyyy"))</p>
+			<p class="address"><span class="lnr lnr-database"></span> @item.Price ₺</p>
+			<p class="address">İlan Sahibi:@item.EmployerUserName</p>
+			@* <div class="container mt-5">
+				<button class="btn btn-primary" data-toggle="collapse" data-target="#@idNum.ToString()">Teklif Ver</button>
+
+				<div id="@idNum.ToString()" class="collapse mt-3">
+					<!-- Burada bilgilerinizi girmek için form veya diğer içerikleri ekleyebilirsiniz -->
+					<form>
+						<div class="form-group">
+							<label for="kullaniciAdi">Kullanıcı Adı:</label>
+							<input type="text" class="form-control" id="kullaniciAdi">
+						</div>
+						<!-- Diğer form alanlarını ekleyebilirsiniz -->
+						<button type="submit" class="btn btn-success">Kaydet</button>
+					</form>
+				</div>
+			</div> *@
+			@if(item.JobTypeId==1)
+			{
+				<a href="/InstagramFollow/Index/@item.JobId">
+					<button class="btn btn-primary">Tamamlandı</button>
+				</a>
+			}else
+			{
+				<a href="/Employer/Offer/GiveOffer/@item.JobId/">
+					<button class="btn btn-primary">Teklif Ver</button>
+				</a>
+			}
+			
+
+		</div>
+	</div>
+}

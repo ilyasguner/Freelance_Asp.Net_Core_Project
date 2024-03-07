@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Offer>
+
+@{
+    ViewData["Title"] = "SendDelivery";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+@{
+    string color = "";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Teslim Edilen İşler Tablosu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>İş Adı</th>
+                            <th>İş Sahibi</th>
+                            <th>Price</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Status)
+                            {
+                                color = "badge badge-outline-success";
+                            }
+                            if (!item.Status)
+                            {
+                                color = "badge badge-outline-warning";
+                            }
+                            <tr>
+                                <td>@item.JobName</td>
+                                <td>@item.EmployerUserName</td>
+                                <td>@item.Price ₺</td>
+                                <td>@(item.Status?"Onaylandı":"Reddedildi")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

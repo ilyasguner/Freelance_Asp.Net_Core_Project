@@ -1,0 +1,42 @@
+﻿@*PlatformSection View*@
+
+@using EntityLayer.Concrete
+@model List<Platform>
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row fullscreen d-flex align-items-center justify-content-center">
+			<div class="banner-content col-lg-12">
+				<h1 class="text-white">
+					<span>1000+</span> İş İlanı Sizleri Bekliyor
+				</h1>				
+				<form action="/JobFilter/Index/" class="search-form-area">
+					<div class="row justify-content-center form-wrap">
+						<div class="col-lg-6 form-cols">
+							<input type="text" class="form-control" name="search" placeholder="Aradığınız İş Nedir?" />
+						</div>
+						<div class="col-lg-4 form-cols">
+							<div class="default-select" id="default-selects">
+								<select name="id" id="platformSelect">
+									<option value="" disabled selected>Platform Seçiniz</option>
+									@foreach (var item in Model)
+									{
+										<option value="@item.PlatformId">@item.PlatformName</option>
+									}
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-2 form-cols">
+							<a id="platformLink" href="">
+								<button type="button" class="btn btn-info" id="platformButton">
+									<span class="lnr lnr-magnifier"></span> Ara
+								</button>
+							</a>
+						</div>
+					</div>
+				</form>
+				<p class="text-white"> <span>Özelliklere Göre Ara:</span> Aradığınız İş Özelliklerine Göre Filtreleme Yapabilirsiniz</p>
+			</div>
+		</div>
+	</div>
+</section>

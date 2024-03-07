@@ -1,0 +1,86 @@
+﻿@using EntityLayer.Concrete
+@model List<Job>
+@{
+    ViewData["Title"] = "TamZamanli";
+    Layout = "~/Views/Shared/_AdminJobFilterLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+	string category;
+	string platform;
+	@switch (item.CategoryId)
+	{
+		case 1:
+			category = "Yazılım Test";
+			break;
+		case 2:
+			category = "Web Geliştirme";
+			break;
+		case 3:
+			category = "Mobil Geliştirme";
+			break;
+		case 4:
+			category = "Oyun Geliştirme";
+			break;
+		case 5:
+			category = "Veri Analistliği";
+			break;
+		case 6:
+			category = "Yapay Zeka";
+			break;
+		default:
+			category = "Hızlı İş";
+			break;
+	}
+	@switch (item.PlatformId)
+	{
+		case 1:
+			platform = "C";
+			break;
+		case 2:
+			platform = "C++";
+			break;
+		case 3:
+			platform = "C#";
+			break;
+		case 4:
+			platform = "Java";
+			break;
+		case 5:
+			platform = "Python";
+			break;
+		default:
+			platform = "Hızlı İş";
+			break;
+	}
+	<div class="single-post d-flex flex-row">
+		<div class="thumb">
+			<img src="~/freelancer-job/img/post.png" alt="">
+			<ul class="tags">
+				<li>
+					<a href="#">@category</a>
+				</li>
+				<li>
+					<a href="#">@platform</a>
+				</li>
+			</ul>
+		</div>
+		<div class="details">
+			<div class="title d-flex flex-row justify-content-between">
+				<div class="titles">
+					<a href="single.html"><h4></h4></a>
+					<h6>@item.JobName</h6>
+				</div>
+			</div>
+			<p>
+				@item.JobContent
+			</p>
+			<h5>@(item.JobTypeId == 0 ? "Tam Zamanlı İş" : "Yarı Zamanlı İş")</h5>
+			<h5>@(((DateTime)item.AdvertDate).ToString("dd-MMM-yyyy"))</h5>
+			<p class="address"><span class="lnr lnr-database"></span> @item.Price ₺</p>
+			<li><a class="ticker-btn" href="/Employer/Offer/GiveOffer/@item.JobId/">Teklif Ver</a></li>
+		</div>
+	</div>
+}
+

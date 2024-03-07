@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Hoşgeldin @ViewBag.v</h3>
+                <h6 class="font-weight-normal mb-0">Freelance sitesinin yönetim paneline hoş geldiniz.<span class="text-primary"></span></h6>
+            </div>
+            <div class="col-12 col-xl-4">
+                <div class="justify-content-end d-flex">
+                    <div class="dropdown flex-md-grow-1 flex-xl-grow-0">             
+                          <i class="mdi mdi-calendar"></i> @DateTime.Now.ToShortDateString() - Bütçe : @ViewBag.v5 ₺  
+                        <form asp-controller="Budget" asp-action="WithdrawMoney" method="post">
+                            <button class="btn btn-outline-success" type="submit">Para Çek</button>
+                        </form><form asp-controller="Budget" asp-action="AddMoney" method="post">
+                            <button class="btn btn-outline-danger" type="submit">Para Yatır</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card tale-bg">
+            <div class="card-people mt-auto">
+                <img src="~/skydash/template/images/dashboard/people.svg" alt="people">
+                <div class="weather-info">
+                    <div class="d-flex">
+                        <div>
+                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>@ViewBag.v6<sup>C</sup></h2>
+                        </div>
+                        <div class="ml-2">
+                            <h4 class="location font-weight-normal">Manisa</h4>
+                            <h6 class="font-weight-normal">Türkiye</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin transparent">
+        <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale">
+                    <div class="card-body">
+                        <p class="mb-4">Verilen İş İlanı Sayısı</p>
+                        <p class="fs-30 mb-2">@ViewBag.v1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Alınan İş Sayısı</p>
+                        <p class="fs-30 mb-2">@ViewBag.v2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card card-light-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Tamamlanan İş Sayısı</p>
+                        <p class="fs-30 mb-2">@ViewBag.v3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <p class="mb-4">Devam Eden İş Sayısı</p>
+                        <p class="fs-30 mb-2">@ViewBag.v4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">İş İlanı Açma</p>
+                <p class="font-weight-500">
+                    Elinizde yaptırmak istediğiniz işleriniz varsa iş ilanı oluşturrabilir,iş takibinizi yapabilirsiniz.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">İlanlara Teklif Verme</p>
+                </div>
+                <p class="font-weight-500">
+                    Freelance sitesinde açılmış olan iş ilanlarını size uygun bir şekilde filtreleyip
+                    istediğiniz ilana teklif verebilirsiniz.
+                </p>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Freelance</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<!--
+	CSS
+	============================================= -->
+	<link rel="stylesheet" href="~/freelancer-job/css/linearicons.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/bootstrap.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/magnific-popup.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/nice-select.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/animate.min.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/owl.carousel.css">
+	<link rel="stylesheet" href="~/freelancer-job/css/main.css">
+</head>
+<body>
+
+	<header id="header" id="home">
+		<div class="container">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="index.html"><img src="~/freelancer-job/img/logo.png" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="/Default/Index/">Anasayfa</a></li>
+						<li><a href="about-us.html">Hakkımızda</a></li>
+						<li><a href="category.html">Misyonumuz</a></li>
+						<li><a href="price.html">Vizyonumuz</a></li>
+						<li>
+							<a href="blog-home.html">Kategoriler</a>
+							<ul>
+								<li><a href="/JobFilter/Index/1">Yazılım Test</a></li>
+								<li><a href="/JobFilter/Index/2">Web Geliştirme</a></li>
+								<li><a href="/JobFilter/Index/3">Mobil Geliştirme</a></li>
+								<li><a href="/JobFilter/Index/5">Oyun Geliştirme</a></li>
+								<li><a href="/JobFilter/Index/6">Veri Analistliği</a></li>
+								<li><a href="/JobFilter/Index/7">Yapay Zeka</a></li>
+							</ul>
+						</li>
+						<li class="menu-has-children">
+							<a href="contact.html">Platformlar</a>
+							<ul>
+								<li><a href="/JobFilter/PlatformFilter/1">C</a></li>
+								<li><a href="/JobFilter/PlatformFilter/2">C++</a></li>
+								<li><a href="/JobFilter/PlatformFilter/3">C#</a></li>
+								<li><a href="/JobFilter/PlatformFilter/4">Java</a></li>
+								<li><a href="/JobFilter/PlatformFilter/5">Python</a></li>
+							</ul>
+						</li>
+						<li><a class="ticker-btn" href="/Employer/Register/Index/">Kayıt Ol</a></li>
+						<li><a class="ticker-btn" href="/Employer/Login/Index/">Giriş Yap</a></li>
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+	</header><!-- #header -->
+	<!-- start banner Area -->
+	<section class="banner-area relative" id="home">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h3 class="text-white">
+						İş Filtreleme Kısmına Hoş Geldiniz Aşğıdan Size Uygun İşi Seçebilirsiniz
+					</h3>
+					<p class="text-white link-nav"><a href="/Default/Index/">Anasayfa </a>  <span class="lnr lnr-arrow-right"></span>  <a href="category.html"> </a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	<!-- Start post Area -->
+	<section class="post-area section-gap">
+		<div class="container">
+			<div class="row justify-content-center d-flex">
+				<div class="col-lg-8 post-list">
+					@* @await Component.InvokeAsync("CategoryFilter") *@
+					@RenderBody()
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End post Area -->
+	<!-- Start callto-action Area -->
+	<section class="callto-action-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content col-lg-9">
+					<div class="title text-center">
+						<h1 class="mb-10 text-white">Filtrelemeden İstediğiniz İşi Seçebilirsiniz</h1>
+						<p class="text-white">Teklif ver diyerek iş sahibine fiyat ve süre verebilirsiniz.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="~/freelancer-job/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="~/freelancer-job/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="~/freelancer-job/js/easing.min.js"></script>
+	<script src="~/freelancer-job/js/hoverIntent.js"></script>
+	<script src="~/freelancer-job/js/superfish.min.js"></script>
+	<script src="~/freelancer-job/js/jquery.ajaxchimp.min.js"></script>
+	<script src="~/freelancer-job/js/jquery.magnific-popup.min.js"></script>
+	<script src="~/freelancer-job/js/owl.carousel.min.js"></script>
+	<script src="~/freelancer-job/js/jquery.sticky.js"></script>
+	<script src="~/freelancer-job/js/jquery.nice-select.min.js"></script>
+	<script src="~/freelancer-job/js/parallax.min.js"></script>
+	<script src="~/freelancer-job/js/mail-script.js"></script>
+	<script src="~/freelancer-job/js/main.js"></script>
+</body>
+</html>
+
+
+

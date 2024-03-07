@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete
+@model List<Offer>
+@{
+    ViewData["Title"] = "GiveOfferList";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+@{
+    string color = "";
+    string durum = "";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Teklif Verilen İşler Tablosu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>İş Adı</th>
+                            <th>İş Sahibi</th>
+                            <th>Teklif Tarihi</th>
+                            <th>Ücret</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Approval==0)
+                            {
+                                color = "badge badge-outline-warning";
+                                durum = "Bekliyor";
+                            }
+                            if (item.Approval==2)
+                            {
+                                color = "badge badge-outline-success";
+                                durum = "Onaylandı";
+                            }
+                            if (item.Approval == 1)
+                            {
+                                color = "badge badge-outline-danger";
+                                durum = "Reddedildi";
+                            }
+
+                            <tr>
+                                <td>@item.JobName</td>
+                                <td>@item.EmployerUserName</td>                              
+                                <td>@(((DateTime)item.OfferDate).ToString("dd-MMM-yyyy"))</td>
+                                <td>@item.Price ₺</td>
+                                <td><label class="@color">@durum</label></td>
+                                @* <td><a href="./AnnouncementDetails/@item.JobId" class="btn btn-outline-primary">Detaylar</a></td> *@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

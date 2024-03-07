@@ -1,0 +1,72 @@
+﻿@model FreelanceCoreProject.Areas.Employer.Models.AnnouncementViewModel
+@{
+    ViewData["Title"] = "AddJobAnnouncement";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddJobAnnouncement", "JobAnnouncement", FormMethod.Post))
+{
+    
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni İş İlanı Ekleme Sayfası</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>İş Adı</label>
+                        <span asp-validation-for="JobName" class="text-danger"></span>
+                        <input type="text" class="form-control" asp-for="JobName">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">İş Açıklaması</label>
+                        <span asp-validation-for="JobContent" class="text-danger"></span>
+                        <textarea class="form-control" rows="6" asp-for="JobContent"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Ücret</label>
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                        <input type="text" class="form-control" asp-for="Price">
+                    </div>
+                    <div class="form-group">
+                        <label>İş Açılış Zamanı</label>
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                        <input type="datetime" class="form-control" asp-for="Date" value="@DateTime.Now">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect">İş Tipini Seçin:</label>
+                        <span asp-validation-for="JobTypeId" class="text-danger"></span>
+                        <select id="exampleSelect" asp-for="JobTypeId">
+                            <option value="0">Tam Zamanlı</option>
+                            <option value="1">Yarı Zamanlı</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect">Category Seçin:</label>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        <select id="exampleSelect" asp-for="CategoryId">
+                            <option value="1">Yazılım Test</option>
+                            <option value="2">Web Geliştirme</option>
+                            <option value="3">Mobil Geliştirme</option>
+                            <option value="5">Oyun Geliştirme</option>
+                            <option value="6">Veri Analistliği</option>
+                            <option value="7">Yapay Zeka</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect">Platform Seçin:</label>
+                        <span asp-validation-for="PlatformId" class="text-danger"></span>
+                        <select id="exampleSelect" asp-for="PlatformId">
+                            <option value="1">C</option>
+                            <option value="2">C++</option>
+                            <option value="3">C#</option>
+                            <option value="4">Java</option>
+                            <option value="5">Python</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">İş İlanı Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+

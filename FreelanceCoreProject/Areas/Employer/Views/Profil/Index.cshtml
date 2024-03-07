@@ -1,0 +1,48 @@
+﻿@model FreelanceCoreProject.Areas.Employer.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Bilgileri Sayfası</h4>
+            <p class="card-description">
+                Profil Bilgileri
+            </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputName1">Kullanıcı Adı</label>
+                    <input type="text" asp-for="UserName" class="form-control" id="exampleInputName1" placeholder="Kullanıcı Adı">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Mail</label>
+                    <input type="email" asp-for="Email" class="form-control" id="exampleInputName1" placeholder="E Mail">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre</label>
+                    <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword4" placeholder="Şifre">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre Tekrar</label>
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" id="exampleInputPassword4" placeholder="Şifre Tekrar">
+                </div>
+                <div class="form-group">
+                    <label>Resim Yükle</label>
+                    <input type="file" asp-for="Image">
+                    @* <div class="input-group col-xs-12">
+                    <input type="text" class="form-control file-upload-info" disabled placeholder="Resim Yükle">
+                    <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                    </span>
+                    </div> *@
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-light" href="/Employer/HomePage/Index/">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

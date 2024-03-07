@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+<section class="feature-cat-area pt-100" id="category">
+	<div class="container">
+		<div class="row d-flex justify-content-center">
+			<div class="menu-content pb-60 col-lg-10">
+				<div class="title text-center">
+					<h1 class="mb-10">Öne Çıkan İş Kategorileri</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-2 col-md-4 col-sm-6">
+					<div class="single-fcat">
+						<a href="/JobFilter/Index/@item.CategoryId">
+							<img src="@item.ImageUrl" alt="">
+						</a>
+						<p>@item.CategoryName</p>
+					</div>
+				</div>
+			}
+			
+		</div>
+	</div>
+</section>

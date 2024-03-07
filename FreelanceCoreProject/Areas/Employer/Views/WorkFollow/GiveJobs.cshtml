@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<Offer>
+
+@{
+    ViewData["Title"] = "GiveJobs";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+@{
+    string color = "";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Verilen İşler Tablosu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>İş Adı</th>
+                            <th>İşi Alan Kullanıcı</th>
+                            <th>Bitiş Tarihi</th>
+                            <th>Ücret</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Status)
+                            {
+                                color = "badge badge-outline-success";
+                            }
+                            if (!item.Status)
+                            {
+                                color = "badge badge-outline-warning";
+                            }
+                            
+                            <tr>
+                                <td>@item.JobName</td>
+                                <td>@item.WorkerUserName</td>
+                                <td>@(((DateTime)item.FinishDate).ToString("dd-MMM-yyyy"))</td>
+                                <td>@item.Price ₺</td>
+                                <td><label class="@color">@(item.Status?"Tamamlandı":"Devam Ediyor")</label></td>
+                                @* <td><a href="./AnnouncementDetails/@item.JobId" class="btn btn-outline-primary">Detaylar</a></td> *@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

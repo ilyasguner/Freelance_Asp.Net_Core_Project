@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model FreelanceCoreProject.Areas.Employer.Models.OfferViewModel
+@{
+    ViewData["Title"] = "GiveOffer";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+@{
+    string jobName = ViewBag.v1;
+}
+<div class="container">
+    <h3 class="i">@jobName için Teklif</h3>
+    <br />
+    <form class="form-group" method="post">
+        <div class="form-group">
+            <label>İş Veren</label>
+            <span asp-validation-for="EmployerUserName" class="text-danger"></span>
+            <input type="text" asp-for="EmployerUserName" class="form-control" placeholder="İş Veren Adı" value="@ViewBag.v2" />
+        </div>
+        <div class="form-group">
+            <label>İş</label>
+            <span asp-validation-for="JobName" class="text-danger"></span>
+            <input type="text" asp-for="JobName" class="form-control" placeholder="İş Adı" value="@ViewBag.v1" />
+        </div>
+        <div class="form-group">
+            <label>Teklif Açıklaması</label>
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <input type="text" asp-for="Description" class="form-control" placeholder="Teklif" />
+        </div>
+        <div class="form-group">
+            <label>Ücret</label>
+            <span asp-validation-for="Price" class="text-danger"></span>
+            <input type="text" asp-for="Price" class="form-control" placeholder="Ücret"  />
+        </div>
+        <div class="form-group">
+            <label>Bitirme Tarihi</label>
+            <span asp-validation-for="FinishDate" class="text-danger"></span>
+            <input type="date" asp-for="FinishDate" class="form-control" placeholder="Bitirme Tarihi" />
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Teklif Yap</button>
+    </form>
+</div>
+
